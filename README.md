@@ -2,10 +2,25 @@
 
 ## UDP Connections
 
-### UDP Server (Node js)
+<br>
+
+### Start server
+
+<br>
+
+_Node js_
 ```bash
 node udp_server.mjs
 ```
+
+<br>
+
+_C_
+```bash
+gcc udp_server.c -o udp_server
+./udp_server 5500
+```
+_Type 'exit' to stop server listening._
 
 <br>
 
@@ -26,3 +41,8 @@ Example:
 nc -u 127.0.0.1 5500
 Hello World!
 ```
+
+<br>
+
+## UDP Connections
+
