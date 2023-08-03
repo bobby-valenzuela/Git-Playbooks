@@ -4,7 +4,7 @@ use strict;
 use Socket;
 
 # Use public IP unless otherwise specified
-my $server = $ARGV[0] || "96.126.97.119";  # Host IP running the server
+my $server = $ARGV[0] || "127.0.0.1";  # Host IP running the server
 
 # use port 7890 as default
 my $port = $ARGV[1] || 7890;

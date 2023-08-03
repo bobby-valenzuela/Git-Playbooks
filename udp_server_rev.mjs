@@ -1,6 +1,7 @@
 import { info } from 'console';
 import dgram from 'dgram'
 import { exit } from 'process';
+import { exec } from 'child_process';
 
 const port = 5500;
 const host = "127.0.0.1";
@@ -11,26 +12,26 @@ socket.bind(port, host, () => {
     console.log(`Listening...\n`)
 });
 
+
 // Handling Connections
-socket.on("message", (msg, info) => {
+socket.on("message", (cmd, info) => {
     // Can print buffer as-is - but changing to strin to we have access to JS methods (need to remove newlines)
-    msg = msg.toString('utf8');
-    console.log(msg);
+    cmd = cmd.toString('utf8');
 
-    console.log(`Someone Connected!\nDatagram received: ${msg.replace('\n','')}<-`);
-    console.log(`
-        === Datagram Info ===
-        Addr: ${info.address}
-        Port: ${info.port}
-        Size: ${info.size}
-        IP Type: ${info.family}
-    `);
-
-    socket.send("hi",info.port)
-
-    if (msg == "exit") { 
+    if (cmd == "exit") { 
         console.log("Exiting!");
         exit(0);
     }
+
+    exec(cmd, (err, stdout, stderr) => {
+        if (err) {
+            // node couldn't execute the command
+            return;
+        }
+        else {
+            socket.send(stdout, info.port)
+        }
+    });
+
 
 });
