@@ -12,7 +12,7 @@ Simple UDP server written in C, Node, Python, and Perl.
 
 _C_
 ```bash
-gcc udp_server.c -o udp_server
+gcc c/udp_server.c -o udp_server
 ./udp_server 5500
 ```
 
@@ -20,21 +20,21 @@ gcc udp_server.c -o udp_server
 
 _Node js_
 ```bash
-node udp_server.mjs
+node node/udp_server.mjs
 ```
 
 <br>
 
 _Python_
 ```bash
-python3 udp_server.py
+python3 python/udp_server.py
 ```
 
 <br>
 
 _Perl_
 ```bash
-perl udp_server.pl
+perl perl/udp_server.pl
 ```
 
 <br>
@@ -81,21 +81,21 @@ Simple UDP server written in C, Node, Python, and Perl that allows for reverse s
 
 _Node js_
 ```bash
-node udp_server_rev.mjs
+node node/udp_server_rev.mjs
 ```
 
 <br>
 
 _Python_
 ```bash
-python3 udp_server_rev.py
+python3 python/udp_server_rev.py
 ```
 
 <br>
 
 _Perl_
 ```bash
-perl udp_server_rev.pl
+perl perl/udp_server_rev.pl
 ```
 
 <br>
