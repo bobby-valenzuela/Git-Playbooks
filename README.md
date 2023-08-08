@@ -106,7 +106,7 @@ _Type 'exit' to stop server listening._
 
 ### Make UDP connection
 ```sh
-nc -u 127.0.0.1 5500
+nc -t 127.0.0.1 5500
 ```
 ^ Replace ip as needed to point to wherever your UDP server is listening.
 
