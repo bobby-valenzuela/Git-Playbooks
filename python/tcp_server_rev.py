@@ -44,7 +44,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
 
 
 if __name__ == "__main__":
-    HOST, PORT = "127.0.0.1", 5512
+    HOST, PORT = "127.0.0.1", 5500
 
     # Create the server, binding to localhost on port 5500
     with socketserver.TCPServer((HOST, PORT), MyTCPHandler) as server:
